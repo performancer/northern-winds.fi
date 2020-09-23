@@ -1,0 +1,14 @@
+<?php
+/** @var $change \NW\Model\Change */
+$translations = ['new' => 'Uutta', 'change' => 'Muutos', 'fix' => 'Korjaus']
+?>
+
+<?php if (!isset($day) || $day !== $change->time()->format('d.m.Y')): ?>
+    <?php $day = $change->time()->format('d.m.Y') ?>
+    <p class="green"><?= $day ?></p>
+<?php endif ?>
+
+<li>
+    <b><?= $translations[$change->type()] ?>:</b>
+    <?= $change->description() ?>
+</li>

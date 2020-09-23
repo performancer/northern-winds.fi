@@ -1,0 +1,86 @@
+header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: url("/assets/img/banner.jpg");
+    height: 80px;
+    box-shadow: 0 0 8px 2px #000;
+}
+
+header .wrapper {
+    display: flex;
+    height: 100%;
+}
+
+header .icon-menu {
+    min-width: 3.5rem;
+    height: 3.5rem;
+    display: inline-block;
+    background-color:  rgba(190, 190, 190, 0.75);
+    mask-image: url('../img/svg/menu.svg');
+    mask-size: 3.5rem 3.5rem;
+    -webkit-mask-image: url('../img/svg/menu.svg');
+    -webkit-mask-size: 3.5rem 3.5rem;
+    margin: auto 15px;
+    cursor: pointer;
+}
+
+header .logo {
+    display: block;
+    min-width: 80px;
+    max-height: 80px;
+    height: 100%;
+    background-image: url('../img/logo-small.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+header .user-nav {
+    position: absolute;
+    right: 0;
+    padding: 5px;
+}
+
+header .top-button {
+    color: red;
+    display: inline;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline:none;
+    text-decoration: underline;
+    font-size: 12px;
+    padding: 0;
+}
+
+header .top-button:hover {
+    color: #647596;
+}
+
+@media only screen and (min-width: 768px) {
+    header .logo {
+        min-width: 370px;
+        max-height: 52px;
+        background-image: url('../img/logo.png');
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    header {
+        width: 100%;
+        background-position: center;
+    }
+
+    header > .wrapper {
+        max-width: 1000px;
+        margin: 0  auto;
+        gap: 50px;
+        justify-content: space-between;
+    }
+
+    header .icon-menu {
+        display: none;
+    }
+}

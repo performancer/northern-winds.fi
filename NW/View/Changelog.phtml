@@ -1,0 +1,30 @@
+<?php
+/** @var $page int */
+/** @var $last bool */
+/** @var $changelog \NW\Model\Change[] */
+?>
+<h1>Kehitysloki</h1>
+<hr>
+<div class="directional-links">
+<?php if($page > 0): ?>
+    <a class="green left" href="/kehitysloki/<?= $page - 1 ?>/">Edelliset 80 muutosta</a>
+<?php endif ?>
+<?php if(!$last): ?>
+    <a class="green right" href="/kehitysloki/<?= $page + 1 ?>/">Seuraavat 80 muutosta</a>
+<?php endif ?>
+</div>
+<hr>
+<ul>
+    <?php foreach($changelog as $change): ?>
+        <?php include(VIEW_PATH . '/Snippet/Change.phtml') ?>
+    <?php endforeach ?>
+</ul>
+<hr>
+<div class="directional-links">
+<?php if($page > 0): ?>
+<a class="green left" href="/kehitysloki/<?= $page - 1 ?>/">Edelliset 80 muutosta</a>
+<?php endif ?>
+<?php if(!$last): ?>
+<a class="green right" href="/kehitysloki/<?= $page + 1 ?>/">Seuraavat 80 muutosta</a>
+<?php endif ?>
+</div>

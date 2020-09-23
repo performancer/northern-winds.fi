@@ -1,0 +1,34 @@
+<div class="innerHeader"><h1>Rekisteröinti</h1></div>
+<hr>
+<div class="ajax-form">
+    <p> Täytä lomakkeen kentät rekisteröityäksesi. Jokainen tili tullaan tarkistamaan yksitellen ja epäasiallista tai
+        väärää tietoa sisältävä hakemus hylätään. Saat sähköpostiisi salasanan, kun tilisi on tarkistettu ja
+        hyväksytty.</p>
+    <p> Jokaisen rekisteröinnin tiedot pysyvät luottamuksellisina ja turvassa väärinkäytöksiltä. Totuudenmukaiset
+        tiedot takaavat sinulle mahdollisimman tehokkaan ja oikeudenmukaisen käsittelyn Northern Windsin yhteisön
+        täysivaltaisena jäsenenä.</p>
+    <form action="/api/register/" method="post">
+        <h3 class="underline">Pakolliset kentät</h3>
+        <label><b>Sähköposti:</b><input type="text" size="25" name="email" maxlength=50></label>
+        <label>
+            <b>Käyttäjätunnus:</b><input type="text" size="25" name="account" maxlength=15>
+            <p>(Vähintään neljä kirjainta pitkä käyttäjätunnus, joka ei sisällä erikoismerkkejä)</p>
+        </label>
+        <h3 class="underline">Vapaasti täytettävät kentät</h3>
+        <label>
+            <b>Discord-tunnus:</b><input type="text" size="25" name="discord" maxlength=20>
+            <p>(Ongelmien ilmetessä saat vastauksen nopeammin)</p>
+        </label>
+        <label>
+            <input class="checkbox" type="checkbox" name="rules"> Sitoudun noudattamaan kaikkia <a
+                    href="/saannot/" target="_blank">sääntöjä</a>.
+        </label>
+        <label>
+            <input class="checkbox" type="checkbox" name="single-account"> Teen vain yhden tilin shardille.
+        </label>
+        <label><input type="submit" value="Rekisteröidy"></label>
+        <div id="error"></div>
+    </form>
+    <p class="notice">Jos olet unohtanut salasanasi, älä tee uutta tiliä vaan ota yhteyttä henkilökuntaan niin
+        vaihdatamme salasanasi sinulle.</p>
+</div>

@@ -1,0 +1,30 @@
+<?php
+/** @var $page int */
+/** @var $last bool */
+/** @var $features \NW\Model\Feature[] */
+?>
+<h1>Ominaisuudet</h1>
+<hr>
+<div class="directional-links">
+    <?php if($page > 1): ?>
+        <a class="green left" href="/ominaisuudet/<?= $page - 1 ?>/">Edellinen sivu </a>
+    <?php endif ?>
+    <?php if(!$last): ?>
+        <a class="green right" href="/ominaisuudet/<?= $page + 1 ?>/">Seuraava sivu</a>
+    <?php endif ?>
+</div>
+<hr>
+<ul class="no-list-style">
+    <?php foreach($features as $feature): ?>
+        <?php include(VIEW_PATH . '/Snippet/Feature.phtml') ?>
+    <?php endforeach ?>
+</ul>
+<hr>
+<div class="directional-links">
+    <?php if($page > 1): ?>
+        <a class="green left" href="/ominaisuudet/<?= $page - 1 ?>/">Edellinen sivu</a>
+    <?php endif ?>
+    <?php if(!$last): ?>
+        <a class="green right" href="/ominaisuudet/<?= $page + 1 ?>/">Seuraava sivu</a>
+    <?php endif ?>
+</div>

@@ -1,0 +1,53 @@
+div.flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+div.flex > div {
+    flex-grow: 1;
+}
+
+div.profile {
+    background-image: url('/assets/img/guides/common/profile.png');
+    background-repeat: no-repeat;
+    margin: auto;
+    padding-right: 70px;
+    padding-left: 37px;
+    padding-top: 85px;
+    width: 235px;
+    height: 237px;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+ul.links {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.links > li > a, a.big-link  {
+    display: block;
+    color: #3e485b;
+    font-weight: bold;
+    text-decoration: none;
+    border: #3e485b 2px solid;
+    margin-top: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+ul.links > li > a:hover, a.big-link:hover {
+    color: #e3e8ee;
+    background: #3e485b;
+}
+
+.question {
+    color: #000;
+    margin-bottom: 0;
+}
+
+.answer {
+    margin-top: 0;
+}

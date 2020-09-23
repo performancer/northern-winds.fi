@@ -1,0 +1,17 @@
+<?php
+/** @var $page \NW\Model\Page */
+?>
+<?php include('Navigation.phtml') ?>
+<h1>Sivueditori</h1>
+<p><a href="/admin/pages/">&#8592;Takaisin sivulistaukseen</a> <a href="<?= $page->url() ?>" target="_blank">Kurkkaa</a></p>
+<div class="ajax-form">
+    <form action="/admin/api/page/update/" method="post">
+        <h3>Muokattava sivu: <?= $page->url() ?></h3>
+        <input type="hidden" name="id" value="<?= $page->id() ?>">
+        <label>
+            <textarea class="large" name="pageContent"><?= htmlspecialchars(trim($page->content()), ENT_QUOTES | ENT_HTML5) ?></textarea>
+        </label>
+        <label><input type="submit" value="Päivitä"></label>
+        <div class="error"></div>
+    </form>
+</div>

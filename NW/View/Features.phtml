@@ -1,0 +1,35 @@
+<?php
+/** @var $features \NW\Model\Feature[] */
+/** @var $changelog \NW\Model\Change[] */
+?>
+<h1>Ominaisuudet</h1>
+<hr>
+<div id="features-container">
+    <p>Northern Winds rakentuu Ultima Onlinen päälle, joka itsessään on melko monipuolinen ja kattava pohja. Koska
+        tavoitteena on kuitenkin täydellisyys, joka huomioi roolipelaamisen tarpeet, ydintä muovataan ja kehitetään kaiken
+        aikaa paremmaksi. Lähdemateriaalina käytämme omaa, sekä ideansa jakavien päitä, emmekä seuraa OSI:n linjanvetoja.
+        Tästä seuraa pikkuhiljaa omintakeisemmaksi muuttuva peli, jonka eteen on nähty ja tullaan näkemään vaivaa. Koska
+        muutoksia tehdään pääosin palvelimen puolelle, pelaajien ei tarvitse murehtia erillisten päivitysten lataamisen
+        kanssa, vaan muutokset heijastuvat peliin oitis kun ne valmistuvat.</p>
+    <h3>Uudet ominaisuudet</h3>
+    <p>Esittelemme uusia shardille valmistuneita ominaisuuksia sitä mukaan kuin niitä palvelimelle ajetaan. Pyrimme
+        raportoimaan kaikki merkittävät seikat, kuitenkaan täydellistä esittelyä kaikista ominaisuuksista ei tehdä, siinä
+        täytyy kääntyä kehityslokin puoleen.</p>
+
+    <?php foreach ($features as $feature): ?>
+        <?php include(VIEW_PATH . '/Snippet/Feature.phtml') ?>
+    <?php endforeach ?>
+    <a class="green" href="/ominaisuudet/1/">Näytä lisää ominaisuuksia</a>
+    <hr>
+    <h3>Kehitysloki</h3>
+    <p>Aiheesta kiinnostuneille alla pyritään raportoimaan kaikki muutokset, lukuun ottamatta mitättömän pieniä sekä
+        pelaajia epäsuorasti koskevia. Oppaita myös päivitellään sitä mukaan kuin tekniikka kehittyy.</p>
+    <p><b><?= count($changelog) ?> uusinta pelillistä muutosta</b></p>
+    <ul>
+
+    <?php foreach($changelog as $change): ?>
+        <?php include(VIEW_PATH . '/Snippet/Change.phtml') ?>
+    <?php endforeach ?>
+    </ul>
+    <a class="green" href="/kehitysloki/">Näytä koko kehitysloki</a>
+</div>

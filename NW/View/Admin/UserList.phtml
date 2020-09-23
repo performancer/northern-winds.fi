@@ -1,0 +1,19 @@
+<?php
+/** @var $users \NW\Model\User[] */
+?>
+<?php include('Navigation.phtml') ?>
+<h1>Käyttäjäpaneeli</h1>
+<hr>
+<h3>Käyttäjät</h3>
+<ul class="list">
+<?php foreach($users as $item): ?>
+    <li>
+        <b><?= $item->time()->format('d.m.Y H:i:s') ?></b>
+        <?= $item->email() ?>
+        <b><?= $item->username() ?></b>
+        <b><?= $item->account() ?></b>
+        <?= $item->discord() ?? '' ?>
+        <?= !$item->active() ? 'inactive' : '' ?>
+    </li>
+<?php endforeach ?>
+</ul>

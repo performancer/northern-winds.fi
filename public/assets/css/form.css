@@ -1,0 +1,34 @@
+form {
+    border: medium double grey;
+    padding: 0 10px;
+}
+
+form b {
+    display: block;
+}
+
+form label {
+    display: block;
+    margin-bottom: 25px;
+}
+
+form p {
+    font-size: 0.8em;
+    margin-top: 0;
+}
+
+form textarea {
+    background: #e6e6fa;
+    resize: none;
+    width: 100%;
+    height: 200px;
+}
+
+form .large {
+    resize: vertical;
+    height: 500px;
+}
+
+form .wide {
+    width: 100%;
+}

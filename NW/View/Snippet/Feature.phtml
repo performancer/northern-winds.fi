@@ -1,0 +1,10 @@
+<?php
+/** @var $feature \NW\Model\Feature */
+?>
+
+<div class="bordered">
+    <h3><div class="feature-ready"></div><?= $feature->title() ?></h3>
+    <?= $feature->description() ?>
+    <p><b>Lisätty:</b> <?= $feature->time()->format('d.m.Y') ?><br>
+        <b>Tila:</b> Valmistunut ja käytössä palvelimella</p>
+</div>

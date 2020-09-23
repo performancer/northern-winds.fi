@@ -1,0 +1,104 @@
+@import url('header.css');
+@import url('navigation.css');
+@import url('content.css');
+@import url('form.css');
+@import url('footer.css');
+@import url('page.css');
+
+@font-face {
+    font-family: MorrisRoman;
+    src: url('/assets/fonts/MorrisRomanBlack.otf');
+}
+
+html {
+    font-family: Tahoma, serif;
+    font-size: 15px;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background-color: #e3e8ee;
+    margin: 0;
+
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: MorrisRoman, Tahoma, serif;
+    font-weight: bold;
+    color: #647596;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.6em;
+}
+
+h4 {
+    font-size: 1.3em;
+    margin-block-start: 0.9em;
+    margin-block-end: 0.9em;
+}
+
+a {
+    color: black;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: grey;
+    text-decoration: none;
+}
+
+.green {
+    color: #669933;
+    font-weight: bold;
+}
+
+.deep-green {
+    color: #008000;
+}
+
+.red {
+    color: darkred;
+    font-weight: bold;
+}
+
+.blue {
+    color: #005fd6;
+    font-weight: bold;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.container {
+    background-color: #bfc1d6;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 5px 15px;
+}
+
+.bordered {
+    border: #bfc1d6 2px solid;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.double-bordered {
+    border: medium double grey;
+    padding: 10px;
+}
+
+input#navigation {
+    display: none;
+}

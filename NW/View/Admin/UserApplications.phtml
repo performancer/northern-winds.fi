@@ -1,0 +1,22 @@
+<?php
+/** @var $users \NW\Model\User[] */
+?>
+<?php include('Navigation.phtml') ?>
+<h3>Tilien hyväksyntä</h3>
+<div id="user-applications-container">
+    <?php $i = 1 ?>
+    <?php foreach ($users as $item): ?>
+        <p class="no-bottom-margin"><?= $item->time()->format('d.m.Y H:i:s') ?> <b>[<?= $i++ ?>]</b></p>
+        <div class="bordered yellow-background">
+            <ul class="no-margin no-list-style">
+                <li>Sähköposti: <?= $item->email() ?></li>
+                <li>Käyttäjänimi: <?= $item->username() ?></li>
+                <li>Pelitunnus: <?= $item->account() ?></li>
+                <li>Discord: <?= $item->discord() ?? '-' ?></li>
+            </ul>
+            <br>
+            <button class="green evt-accept" data-id="<?= $item->id() ?>">Hyväksy</button>
+            <button class="red evt-refuse" data-id="<?= $item->id() ?>">Hylkää</button>
+        </div>
+    <?php endforeach ?>
+</div>

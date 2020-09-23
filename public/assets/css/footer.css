@@ -1,0 +1,26 @@
+.footer {
+    display: flex;
+    background: #a7adb9;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.footer__wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0  auto;
+}
+
+.footer__copyright, .footer__donate {
+    color: #3e485b;
+    display: block;
+    font-family: MorrisRoman, Tahoma, serif;
+    font-style: italic;
+    font-weight: bold;
+    margin: 5px 3px;
+}

@@ -1,0 +1,25 @@
+<?php
+/** @var $features \NW\Model\Feature[] */
+?>
+<?php include('Navigation.phtml') ?>
+<h1>Ominaisuudet</h1>
+<div class="ajax-form" id="features-container">
+    <form action="/admin/api/feature/add/" method="post">
+        <h3>Lisää uusi ominaisuus</h3>
+        <label><b>Otsikko:</b><input class="wide" type="text" name="title"></label>
+        <label>
+            <textarea name="description"></textarea>
+            <p><?= htmlspecialchars('Ainoat hyväksytyt html-tägit ovat <p>, <ul>, <li>, <b>, <i>',
+                    ENT_QUOTES | ENT_HTML5) ?></p>
+        </label>
+        <label><input type="submit" value="Lisää"></label>
+        <div id="error"></div>
+    </form>
+    <?php foreach ($features as $feature): ?>
+        <div class="bordered">
+            <?php include(VIEW_PATH . '/Snippet/Feature.phtml') ?>
+            <a href="/admin/features/<?= $feature->id() ?>/"><button>Muokkaa</button></a>
+            <button class="evt-delete-feature" data-id="<?= $feature->id() ?>">Poista</button>
+        </div>
+    <?php endforeach ?>
+</div>

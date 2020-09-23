@@ -1,0 +1,55 @@
+div.server-status {
+    display: block;
+    font-family: MorrisRoman, Tahoma, serif;
+    font-size: 1.2rem;
+    color: #3e485b;
+    margin: 10px;
+}
+
+div.server-status > b {
+    font-style: italic;
+}
+
+div.server-status.online > .text:before {
+    color: #008000;
+    content: "Päällä";
+}
+
+div.server-status.offline > .text:before {
+    color: #8b0000;
+    content: "Maissa";
+}
+
+div.server-status > span.icon {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-right: 2px;
+}
+
+div.server-status.online > span.icon {
+    background: url('/assets/img/online.png');
+}
+
+div.server-status.offline > span.icon {
+    background: url('/assets/img/offline.png');
+}
+
+@media only screen and (min-width: 900px) {
+    div.server-status.mobile-only {
+        display: none;
+    }
+
+    div.server-status {
+        font-size: 1em;
+        margin: 5px;
+    }
+}
+
+@media only screen and (max-width: 899px) {
+    div.server-status.desktop-only {
+        display: none;
+    }
+}

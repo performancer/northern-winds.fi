@@ -1,0 +1,112 @@
+<?php
+/** @var $user \NW\Model\User */
+/** @var $content string */
+/** @var $time DateTime */
+?>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Laadukas kotimainen ja täysin ilmainen nettiroolipeli - Ultima Online shardi">
+    <meta name="keywords" content="Northern Winds, Ultima Online, Shardi, Roolipeli, Nettiroolipeli, Nettirope, Morppi,
+    Ilmainen, UO Shardi, UO Shard, MMORPG, UO servu, Kotimainen, Serveri, Servu, Palvelin, Suomalainen">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script type="module" src="/assets/js/Events.js"></script>
+
+    <link rel="icon" href="/assets/img/icon.gif" type="image/gif">
+    <link rel="stylesheet" type="text/css" href="/assets/css/nw.css">
+    <title>Northern Winds</title>
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <input id="navigation" type="checkbox">
+        <label class="icon-menu" for="navigation"></label>
+        <a href="/" class="logo"></a>
+        <nav class="evt-nav">
+            <div class="dropdown">
+                <input class="evt-submenu-checkbox" id="common" type="checkbox" name="menu"/>
+                <label class="evt-submenu-label" for="common">Yleinen <span class="arrow"></span></label>
+                <ul class="submenu">
+                    <li><a href="/">Etusivu</a></li>
+                    <?php if (!isset($user)): ?>
+                        <li><a href="/rekisterointi/">Rekisteröinti</a></li>
+                    <?php endif ?>
+                    <li><a href="/pelaamaan/">Pelaamaan</a></li>
+                    <li><a href="/saannot/">Säännöt</a></li>
+                    <li><a href="/ominaisuudet/">Ominaisuudet</a></li>
+                    <li><a href="/tiedostot/">Tiedostot</a></li>
+                    <li><a href="/ukk/">UKK</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <input class="evt-submenu-checkbox" id="world" type="checkbox" name="menu"/>
+                <label class="evt-submenu-label" for="world">Maailma <span class="arrow"></span></label>
+                <ul class="submenu">
+                    <li><a href="/maailma/historia/">Historia</a></li>
+                    <li><a href="/maailma/kaupungit/">Kaupungit</a></li>
+                    <li><a href="/maailma/uskonnot/">Uskonnot</a></li>
+                    <li><a href="/maailma/laki/">Tasavallan laki</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <input class="evt-submenu-checkbox" id="guide" type="checkbox" name="menu"/>
+                <label class="evt-submenu-label" for="guide">Oppaat <span class="arrow"></span></label>
+                <ul class="submenu">
+                    <li><a href="/oppaat/alkuun-paasy/">Alkuun pääsy</a></li>
+                    <li><a href="/oppaat/roolipelaaminen/">Roolipelaaminen</a></li>
+                    <li><a href="/oppaat/yleinen/">Yleinen</a></li>
+                    <li><a href="/oppaat/taidot/">Taidot</a></li>
+                </ul>
+            </div>
+            <div class="server-status <?= SERVER_STATUS ?> mobile-only">
+                <b>Palvelimen tila:</b><span class="icon"></span><span class="text"></span>
+            </div>
+        </nav>
+        <?php if (isset($user)): ?>
+            <div class="user-nav">
+                <?php if ($user->isAdmin()): ?>
+                    <a class="top-button" href="/admin/">Ylläpito</a>
+                <?php endif ?>
+                <button class="top-button" onclick="logout()">Kirjaudu ulos</button>
+                <script>
+                    function logout() {
+                        let xml = new XMLHttpRequest();
+                        xml.open("POST", '/api/logout/', true);
+
+                        xml.onreadystatechange = () => {
+                            if (xml.readyState === XMLHttpRequest.DONE) {
+                                window.location.href = '/';
+                            }
+                        };
+                        xml.send();
+                    }
+                </script>
+            </div>
+        <?php endif ?>
+    </div>
+</header>
+<div class="content-wrap">
+    <div class="content">
+
+        <?= $content ?>
+        <img src="/assets/img/bottom-leaf.jpg" class="bottom-leaf" alt="leaf">
+        <?php if (isset($time)): ?>
+            <p class="timestamp">Sivu päivitetty viimeksi: <?= $time->format('d.m.Y') ?></p>
+        <?php endif ?>
+    </div>
+    <footer class="footer">
+        <div class="footer__wrapper">
+            <div class="server-status <?= SERVER_STATUS ?> desktop-only">
+                <b>Palvelimen tila:</b><span class="icon"></span><span class="text"></span>
+            </div>
+            <div>
+                <span class="footer__copyright">Copyright 2005-2020 © Northern Winds</span>
+                <span class="footer__donate">Tue shardin ylläpitoa:
+                    <a class="blue" href="https://www.patreon.com/user?u=31870790">Ryhdy lahjoittajaksi</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>

@@ -1,0 +1,33 @@
+<?php
+/** @var $changelog \NW\Model\Change[] */
+
+$translations = ['new' => 'Uutta', 'change' => 'Muutos', 'fix' => 'Korjaus']
+
+?>
+<?php include('Navigation.phtml') ?>
+<h1>Kehitysloki</h1>
+<div class="ajax-form" id="changelog-container">
+    <form action="/admin/api/changelog/add/" method="post">
+        <h3>Lisää uusi kehitysmerkintä</h3>
+        <label>
+            <b>Tyyppi:</b>
+            <select name="type">
+                <option value='new' selected='selected'>Uutta</option>
+                <option value='change'>Muutos</option>
+                <option value='fix'>Korjaus</option>
+            </select>
+        </label>
+        <label><b>Kuvaus:</b><input class="wide" type="text" name="description"></label>
+        <label><input type="submit" value="Lisää"></label>
+        <div id="error"></div>
+    </form>
+    <ul class="list">
+        <?php foreach ($changelog as $change): ?>
+            <li>
+                <b><?= $change->time()->format('d.m.Y') ?> <?= $translations[$change->type()] ?>:</b>
+                <?= $change->description() ?>
+                <button class="right evt-delete-change" data-id="<?= $change->id() ?>">Poista</button>
+            </li>
+        <?php endforeach ?>
+    </ul>
+</div>

@@ -1,0 +1,14 @@
+<?php
+/** @var $pages \NW\Model\Page[] */
+?>
+<?php include('Navigation.phtml') ?>
+<h1>Sivut</h1>
+<?php $i = 1 ?>
+<ul class="list">
+<?php foreach($pages as $page): ?>
+    <li>
+        <b><a href="<?= $page->url() ?>"><?= $page->url() ?></a></b>
+        <a href="/admin/pages/<?= $page->id() ?>/">Muokkaa</a>
+    </li>
+<?php endforeach ?>
+</ul>
